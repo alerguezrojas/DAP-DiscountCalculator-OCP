@@ -1,0 +1,39 @@
+@startuml
+interface correctedOCP.DiscountStrategy {
+~ double calculate(double)
+}
+
+class correctedOCP.DiscountCalculator {
++ double applyDiscount(DiscountStrategy,double)
+}
+
+class violationOCP.Main {
++ {static} void main(String[])
+}
+
+class correctedOCP.Main {
++ {static} void main(String[])
+}
+
+class correctedOCP.PlatinumDiscount {
++ double calculate(double)
+}
+
+class violationOCP.DiscountCalculator {
++ double calculateDiscount(String,double)
+}
+
+class correctedOCP.RegularDiscount {
++ double calculate(double)
+}
+
+class correctedOCP.VIPDiscount {
++ double calculate(double)
+}
+
+
+
+correctedOCP.DiscountStrategy <|.. correctedOCP.PlatinumDiscount
+correctedOCP.DiscountStrategy <|.. correctedOCP.RegularDiscount
+correctedOCP.DiscountStrategy <|.. correctedOCP.VIPDiscount
+@enduml
